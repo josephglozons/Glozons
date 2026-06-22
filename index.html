@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="dark scroll-smooth">
+<html lang="ms" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glozons - 帮助铁厂老板从“靠自己”走向“靠系统”经营企业</title>
-    <!-- 引入 Tailwind CSS & Lucide 图标 & Inter 字体 -->
+    <title>Glozons - Membantu Pengusaha Kilang Besi Beralih daripada Kebergantungan Individu kepada Pengurusan Berasaskan Sistem</title>
+    <!-- Memasukkan Tailwind CSS, Lucide Icons & Font Inter -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800&family=Noto+Sans+SC:wght=300;400;500;700;900&display=swap" rel="stylesheet">
@@ -38,7 +38,7 @@
     </script>
     
     <style>
-        /* 极光网格背景 */
+        /* Latar Belakang Grid Aurora */
         .grid-bg {
             background-color: #030014;
             background-image: 
@@ -51,7 +51,7 @@
             -webkit-mask-image: radial-gradient(circle at center, transparent 20%, black 100%);
         }
         
-        /* 动效精炼整合 */
+        /* Animasi Transisi Halus */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -64,9 +64,9 @@
         }
         .float-element { animation: float 6s ease-in-out infinite; }
         
-        /* 3D 溢出动力学火花粒子 */
+        /* Animasi Zarah Percikan Api Termodinamik 3D */
         @keyframes sparkRise {
-            0 { transform: translate(0, 0) scale(0) rotate(0deg); opacity: 0; }
+            0% { transform: translate(0, 0) scale(0) rotate(0deg); opacity: 0; }
             15% { opacity: 1; filter: blur(0px); }
             100% { transform: var(--translate-dest) scale(var(--scale-dest)) rotate(var(--rotate-dest)); opacity: 0; filter: blur(2px); }
         }
@@ -82,7 +82,7 @@
             animation-delay: var(--spark-delay);
         }
 
-        /* 魅紫极光卡片样式 */
+        /* Rekabentuk Kad Ungu Berkilau */
         .glow-card {
             position: relative;
             background: rgba(13, 6, 38, 0.4);
@@ -106,7 +106,7 @@
             box-shadow: 0 20px 40px -15px rgba(139, 92, 246, 0.4);
         }
 
-        /* 自定义微光流痕 */
+        /* Aliran Garisan Bercahaya Tersuai */
         .glow-line {
             background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
             height: 1px;
@@ -128,7 +128,7 @@
             100% { left: 200%; }
         }
 
-        /* 极极简滚动条 */
+        /* Reka Bentuk Penatal Bar Sisi Minimalis */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #030014; }
         ::-webkit-scrollbar-thumb { background: #1f1a3a; border-radius: 99px; }
@@ -137,39 +137,39 @@
 </head>
 <body class="bg-black text-white antialiased selection:bg-indigo-500 selection:text-white font-sans overflow-x-hidden">
 
-    <!-- 顶层全局消息Toast容器 -->
+    <!-- Bekas Notifikasi Pop-Up (Toast) Global -->
     <div id="toast-container" class="fixed top-20 right-6 z-[100] flex flex-col gap-3 pointer-events-none"></div>
 
-    <!-- 顶部导航栏 (完美对齐图片排位) -->
+    <!-- Bar Navigasi Atas -->
     <nav class="fixed top-0 left-0 w-full z-50 border-b border-white/[0.04] bg-black-100/70 backdrop-blur-xl transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 h-18 flex items-center justify-between py-4">
             <button onclick="navigateTo('home')" class="flex items-center gap-3 focus:outline-none group">
-                <!-- 只保留完美的 Logo 图像，移除所有 HTML 文本防止像 image_67937d.png 那样产生重合 -->
+                <!-- Mengekalkan imej logo yang sempurna tanpa teks bertindih -->
                 <div class="relative h-10 w-auto flex items-center justify-center">
-                    <img src="images/logo.jpg" alt="Glozons Logo" class="h-10 w-auto object-contain invert" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="images/logo.jpg" alt="Logo Glozons" class="h-10 w-auto object-contain invert" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="hidden w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 items-center justify-center shadow-lg shadow-indigo-500/20">
                         <i data-lucide="shield" class="w-4 h-4 text-white"></i>
                     </div>
                 </div>
             </button>
             
-            <!-- 精准调整后的导航排位 (首页, 关于我们, 盈利模拟器, 预约1v1专家会诊) -->
+            <!-- Menu Navigasi -->
             <div class="hidden md:flex items-center space-x-10 text-sm font-medium text-gray-400">
-                <button onclick="navigateTo('home')" class="hover:text-white transition-colors focus:outline-none">首页</button>
-                <button onclick="navigateTo('about')" class="hover:text-white transition-colors focus:outline-none">关于我们</button>
+                <button onclick="navigateTo('home')" class="hover:text-white transition-colors focus:outline-none">Laman Utama</button>
+                <button onclick="navigateTo('about')" class="hover:text-white transition-colors focus:outline-none">Tentang Kami</button>
                 <button onclick="navigateTo('home', 'simulator')" class="hover:text-amber-400 transition-colors focus:outline-none flex items-center gap-1">
-                    <i data-lucide="calculator" class="w-4 h-4 text-amber-500"></i>盈利模拟器
+                    <i data-lucide="calculator" class="w-4 h-4 text-amber-500"></i>Simulator Keuntungan
                 </button>
                 
                 <button onclick="window.open('https://forms.gle/NvbcChnv743WPjYQ8', '_blank')" class="relative inline-flex h-10 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-indigo-500">
                     <span class="absolute inset-0 rotate-180 bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"></span>
                     <span class="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-5 text-xs font-semibold text-white backdrop-blur-3xl hover:bg-slate-900/80 transition-colors">
-                        预约1v1专家会诊
+                        Sesi Perundingan 1-ke-1
                     </span>
                 </button>
             </div>
 
-            <!-- 移动端简易菜单按钮 -->
+            <!-- Butang Menu Mudah Alih -->
             <div class="md:hidden flex items-center">
                 <button onclick="toggleMobileMenu()" class="text-gray-400 hover:text-white focus:outline-none">
                     <i data-lucide="menu" id="mobile-menu-icon" class="w-6 h-6"></i>
@@ -177,35 +177,35 @@
             </div>
         </div>
 
-        <!-- 移动端下拉列表 -->
+        <!-- Menu Skrin Kecil Mudah Alih -->
         <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-white/[0.08] px-6 py-4 space-y-4">
-            <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left text-gray-300 hover:text-white py-1">首页</button>
-            <button onclick="navigateTo('about'); toggleMobileMenu()" class="block w-full text-left text-gray-300 hover:text-white py-1">关于我们</button>
-            <button onclick="navigateTo('home', 'simulator'); toggleMobileMenu()" class="block w-full text-left text-amber-400 py-1 flex items-center gap-1"><i data-lucide="calculator" class="w-4 h-4"></i>盈利模拟器</button>
-            <button onclick="window.open('https://forms.gle/NvbcChnv743WPjYQ8', '_blank'); toggleMobileMenu()" class="block w-full py-2.5 bg-indigo-600 text-center rounded-xl text-xs font-bold text-white">预约1v1专家会诊</button>
+            <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left text-gray-300 hover:text-white py-1">Laman Utama</button>
+            <button onclick="navigateTo('about'); toggleMobileMenu()" class="block w-full text-left text-gray-300 hover:text-white py-1">Tentang Kami</button>
+            <button onclick="navigateTo('home', 'simulator'); toggleMobileMenu()" class="block w-full text-left text-amber-400 py-1 flex items-center gap-1"><i data-lucide="calculator" class="w-4 h-4"></i>Simulator Keuntungan</button>
+            <button onclick="window.open('https://forms.gle/NvbcChnv743WPjYQ8', '_blank'); toggleMobileMenu()" class="block w-full py-2.5 bg-indigo-600 text-center rounded-xl text-xs font-bold text-white">Sesi Perundingan 1-ke-1</button>
         </div>
     </nav>
 
-    <!-- 主体视图：首页 -->
+    <!-- Bahagian Utama: Laman Utama -->
     <main id="view-home" class="block animate-fade-in-up">
         
-        <!-- 首页英雄区 -->
+        <!-- Seksyen Hero Laman Utama -->
         <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg pt-16">
             <div class="absolute inset-0 grid-mask bg-black-100 pointer-events-none z-0"></div>
             <div class="absolute w-[600px] h-[600px] bg-indigo-glow/10 rounded-full filter blur-[150px] top-1/4 left-1/3 animate-pulse z-0" style="animation-duration: 8s;"></div>
             <div class="absolute w-[400px] h-[400px] bg-purple-600/10 rounded-full filter blur-[120px] bottom-1/4 right-1/4 z-0"></div>
 
-            <!-- 右侧高科技控制终端大图 (本地图片路径) -->
+            <!-- Imej Terminal Kawalan Teknologi Tinggi di Sebelah Kanan -->
             <div class="absolute right-0 top-0 bottom-0 w-full md:w-[48%] lg:w-[38%] opacity-90 pointer-events-none overflow-hidden select-none z-10">
                 <div class="absolute inset-0 bg-gradient-to-r from-black-100 via-black-100/60 to-transparent z-20"></div>
                 <div class="absolute inset-0 bg-purple-950/20 mix-blend-color z-20"></div>
                 <img src="images/hero-bg.jpg" 
-                     alt="Glozons Technological Control HUD" 
+                     alt="Paparan Antara Muka Glozons" 
                      class="w-full h-full object-cover object-center filter brightness-[0.8] contrast-[1.2] scale-105"
                      onerror="this.src='https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80';">
             </div>
 
-            <!-- 动态飘飞的炉火微观粒子效果 -->
+            <!-- Kesan Percikan Api Dinamik Kilang -->
             <div class="absolute right-[5%] bottom-[15%] w-[25%] h-[50%] pointer-events-none z-10 overflow-hidden hidden md:block">
                 <div class="spark-particle" style="--spark-dur: 4.5s; --spark-delay: 0s; --translate-dest: translate(120px, -240px); --scale-dest: 1.4; --rotate-dest: 180deg; bottom: 10%; left: 30%;"></div>
                 <div class="spark-particle" style="--spark-dur: 5s; --spark-delay: 1.2s; --translate-dest: translate(-80px, -280px); --scale-dest: 1.1; --rotate-dest: -120deg; bottom: 8%; left: 50%;"></div>
@@ -213,35 +213,34 @@
                 <div class="spark-particle" style="--spark-dur: 4.2s; --spark-delay: 3.1s; --translate-dest: translate(-120px, -190px); --scale-dest: 1.3; --rotate-dest: -90deg; bottom: 7%; left: 25%;"></div>
             </div>
 
-            <!-- 交互文字层 -->
+            <!-- Teks Kandungan Interaktif (Dipermudah & Dikemas kini) -->
             <div class="relative z-20 max-w-7xl mx-auto px-6 w-full py-12 lg:py-20">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-                    <div class="lg:col-span-8 text-left space-y-7">
+                    <div class="lg:col-span-8 text-left space-y-6">
                         <span class="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold tracking-wider text-indigo-light uppercase bg-zinc-950/80 border border-indigo-500/20 rounded-full shadow-lg">
                             <span class="w-2 h-2 bg-green-500 rounded-full animate-ping"></span>
-                            GLOZONS · 实战工业 Advisory顾问
+                            GLOZONS · Perunding Praktikal Industri
                         </span>
                         
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] text-white">
-                            帮助铁厂老板从<br>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.2] text-white">
+                            Ubah Kilang Besi:<br>
                             <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-200 to-indigo-300">
-                                “靠自己”走向“靠系统”
-                            </span><br>经营企业
+                                Daripada Individu Kepada Sistem
+                            </span>
                         </h1>
 
-                        <div class="text-sm sm:text-base text-gray-400 leading-relaxed space-y-1.5 max-w-2xl font-medium">
-                            <p>我们将自己真实的重工业实体战绩 —— <a href="https://www.ironguardz.com/" target="_blank" class="text-white font-semibold underline decoration-indigo-400 decoration-2 hover:text-indigo-300 transition-colors">IronGuardz 铁厂</a> 的盈利经验</p>
-                            <p>提炼为一套零基础也看得懂、拿走即可直接复制运行的企业系统。</p>
+                        <div class="text-sm sm:text-base text-gray-400 leading-relaxed max-w-2xl font-medium">
+                            <p>Kami menyusun formula fizikal sebenar daripada <a href="https://www.ironguardz.com/" target="_blank" class="text-white font-semibold underline decoration-indigo-400 decoration-2 hover:text-indigo-300 transition-colors">Kilang Besi IronGuardz</a> menjadi sistem korporat yang praktikal, mudah direplikasi, dan sedia diguna pakai.</p>
                         </div>
 
-                        <div class="pt-4 flex flex-col sm:flex-row items-center gap-4">
+                        <div class="pt-2 flex flex-col sm:flex-row items-center gap-4">
                             <button onclick="window.open('https://forms.gle/NvbcChnv743WPjYQ8', '_blank')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white text-black font-bold text-sm hover:bg-gray-100 transition-all transform hover:-translate-y-0.5 shadow-xl">
-                                预约 1 对 1 专家会诊
+                                Sesi Perundingan 1-ke-1
                                 <i data-lucide="sparkles" class="w-4 h-4 text-indigo-600 animate-spin"></i>
                             </button>
                             <button onclick="navigateTo('home', 'simulator')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-zinc-900 border border-white/10 text-gray-300 hover:text-white hover:border-white/20 transition-all text-sm font-semibold">
                                 <i data-lucide="calculator" class="w-4 h-4 text-amber-500"></i>
-                                试算起步盈利保本线
+                                Anggar Hasil Pulang Modal
                             </button>
                         </div>
                     </div>
@@ -249,17 +248,17 @@
             </div>
         </section>
 
-        <!-- “靠自己”VS“靠系统” 黄金对比透视板 -->
+        <!-- Panel Analisis Perbandingan Emas: Kebergantungan Diri vs Sistem -->
         <section id="contrast" class="py-24 bg-black relative border-t border-white/[0.03]">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold tracking-widest text-indigo-400 uppercase bg-indigo-500/10 border border-indigo-500/20 rounded-full">CONTRAST ANALYSIS</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-4">传统人治 vs Glozons 系统化</h2>
-                    <p class="mt-4 text-gray-400 text-sm leading-relaxed">找准工厂难以扩张、老板疲惫不堪的根源。不换设备，只换底座逻辑。</p>
+                    <span class="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold tracking-widest text-indigo-400 uppercase bg-indigo-500/10 border border-indigo-500/20 rounded-full">ANALISIS PERBANDINGAN</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-4">Urus Tadbir Konvensional vs Pengurusan Bersistem Glozons</h2>
+                    <p class="mt-4 text-gray-400 text-sm leading-relaxed">Kenal pasti punca sebenar mengapa kilang sukar berkembang dan pemiliknya keletihan. Tanpa perlu menukar peralatan, hanya ubah logik asas operasi perniagaan.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- 靠自己传统模式 -->
+                    <!-- Model Konvensional Tradisional -->
                     <div class="p-8 rounded-3xl bg-zinc-950/60 border border-red-500/15 relative overflow-hidden group hover:border-red-500/30 transition-all">
                         <div class="absolute top-0 right-0 w-24 h-24 bg-red-500/5 rounded-full filter blur-xl"></div>
                         <div class="flex items-center gap-3 mb-6">
@@ -267,31 +266,31 @@
                                 <i data-lucide="frown" class="w-5 h-5"></i>
                             </div>
                             <div>
-                                <h4 class="text-lg font-bold text-white">传统“靠老板”模式</h4>
-                                <p class="text-xs text-red-400">高度脆弱，无法规模复制</p>
+                                <h4 class="text-lg font-bold text-white">Model Tradisional "Urusan Sendiri"</h4>
+                                <p class="text-xs text-red-400">Sangat rapuh, sukar direplikasi secara berskala</p>
                             </div>
                         </div>
                         <ul class="space-y-4 text-sm text-gray-400">
                             <li class="flex items-start gap-2">
                                 <i data-lucide="alert-triangle" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
-                                <span><strong>大师傅说了算：</strong> 师傅一旦流失，质量波动，产能立刻停摆，被核心员工绑架。</span>
+                                <span><strong>Pekerja Mahir Memonopoli Keputusan:</strong> Sebaik sahaja pekerja mahir utama berhenti, kualiti terjejas dan pengeluaran terhenti. Pemilik seolah-olah ditawan oleh kakitangan teras.</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <i data-lucide="alert-triangle" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
-                                <span><strong>报价凭老板直觉：</strong> 凭口头经验应付询盘，极易导致高风险亏损单，成交无序。</span>
+                                <span><strong>Sebut Harga Berdasarkan Gerak Hati:</strong> Bergantung semata-mata pada pengalaman lisan semasa rundingan harga, meningkatkan risiko kerugian dan urus niaga yang tidak teratur.</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <i data-lucide="alert-triangle" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
-                                <span><strong>财务糊涂账：</strong> 每天看银行余额，不知道工段损耗，年底钱扣掉隐性损耗所剩无几。</span>
+                                <span><strong>Kewangan Tidak Teratur:</strong> Sekadar menyemak baki bank setiap hari tanpa mengetahui kadar pembaziran di setiap stesen kerja. Hasil bersih tahunan yang tinggal amat sedikit akibat kerugian tersembunyi.</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <i data-lucide="alert-triangle" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
-                                <span><strong>跨区无法裂变：</strong> 老板是最大的物理上限，一天不盯着，车间就怠工。</span>
+                                <span><strong>Gagal Berkembang ke Wilayah Lain:</strong> Keupayaan fizikal pemilik menjadi had terbesar. Jika sehari sahaja tidak dipantau di bengkel kerja, produktiviti kakitangan akan mula merosot.</span>
                             </li>
                         </ul>
                     </div>
 
-                    <!-- Glozons 体系化模式 -->
+                    <!-- Model Bersistem Glozons -->
                     <div class="p-8 rounded-3xl bg-zinc-950/60 border border-indigo-500/15 relative overflow-hidden group hover:border-indigo-500/30 transition-all shadow-lg hover:shadow-indigo-500/10">
                         <div class="absolute top-0 right-0 w-24 h-24 bg-indigo-500/10 rounded-full filter blur-xl"></div>
                         <div class="flex items-center gap-3 mb-6">
@@ -299,26 +298,26 @@
                                 <i data-lucide="smile" class="w-5 h-5"></i>
                             </div>
                             <div>
-                                <h4 class="text-lg font-bold text-white">Glozons“靠系统”模式</h4>
-                                <p class="text-xs text-indigo-400">标准底座，实现流水线级自主运转</p>
+                                <h4 class="text-lg font-bold text-white">Model Bersistem Glozons</h4>
+                                <p class="text-xs text-indigo-400">Struktur standard untuk operasi autonomi yang lancar</p>
                             </div>
                         </div>
                         <ul class="space-y-4 text-sm text-gray-300">
                             <li class="flex items-start gap-2">
                                 <i data-lucide="check-circle" class="w-4 h-4 text-indigo-400 flex-shrink-0 mt-0.5"></i>
-                                <span><strong>极致流程（SOP）：</strong> 把技能做在模板里，3天新人看着图片指令即可生产同等高质量的产品。</span>
+                                <span><strong>SOP Berprestasi Tinggi:</strong> Kemahiran disematkan ke dalam templat kerja. Pekerja baharu dalam tempoh 3 hari mampu menghasilkan produk berkualiti tinggi yang setara berpandukan arahan visual.</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <i data-lucide="check-circle" class="w-4 h-4 text-indigo-400 flex-shrink-0 mt-0.5"></i>
-                                <span><strong>标准化谈判体系：</strong> 通过高价值策略及矩阵锁价，杜绝盲目拼低价，锁定25%+的高毛利空间。</span>
+                                <span><strong>Sistem Rundingan Standard:</strong> Melalui strategi nilai tinggi dan matrik harga tetap, kita menghapuskan persaingan harga murah yang merugikan serta mengunci margin keuntungan kasar melebihi 25%.</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <i data-lucide="check-circle" class="w-4 h-4 text-indigo-400 flex-shrink-0 mt-0.5"></i>
-                                <span><strong>每日吨损耗看板：</strong> 使用低成本移动看板，班组每日上报核销，精准拦截每吨材料的跑冒滴漏。</span>
+                                <span><strong>Papan Tanda Pembaziran Tan Harian:</strong> Menggunakan papan maklumat mudah alih kos rendah yang dikemas kini setiap hari oleh pasukan untuk menyekat ketirisan bahan mentah secara tepat.</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <i data-lucide="check-circle" class="w-4 h-4 text-indigo-400 flex-shrink-0 mt-0.5"></i>
-                                <span><strong>全套模型快速克隆：</strong> 标准模式即开即用，实现老板身在异地、企业自动造血的良性裂变。</span>
+                                <span><strong>Replikasi Model Perniagaan Pantas:</strong> Model standard sedia diguna pakai bagi membolehkan perniagaan terus menjana hasil yang kukuh walaupun pemilik tidak berada di tapak kilang.</span>
                             </li>
                         </ul>
                     </div>
@@ -326,45 +325,45 @@
             </div>
         </section>
 
-        <!-- 核心四大体系展示区 -->
+        <!-- Bahagian Paparan Empat Sistem Teras -->
         <section id="projects" class="py-28 bg-black relative overflow-hidden border-t border-b border-white/[0.03]">
             <div class="absolute inset-0 grid-mask bg-black-100 pointer-events-none"></div>
             <div class="absolute w-[600px] h-[600px] bg-purple-900/15 rounded-full filter blur-[140px] top-1/4 left-1/4 animate-pulse pointer-events-none" style="animation-duration: 10s;"></div>
             
             <div class="relative z-10 max-w-7xl mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto mb-24">
-                    <span class="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold tracking-widest text-purple-300 uppercase bg-purple-500/10 border border-purple-500/20 rounded-full">CORE SYSTEMS</span>
-                    <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mt-4">我们专注协助铁厂发展的四大战法</h2>
-                    <p class="mt-4 text-gray-400 text-sm sm:text-base leading-relaxed">不讲看不懂的学院派理论，只输出直接拦截工厂流流失、提升成交能力的管理闭环。</p>
+                    <span class="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold tracking-widest text-purple-300 uppercase bg-purple-500/10 border border-purple-500/20 rounded-full">SISTEM TERAS</span>
+                    <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mt-4">Empat Strategi Utama Kami untuk Membantu Kilang Besi</h2>
+                    <p class="mt-4 text-gray-400 text-sm sm:text-base leading-relaxed">Kami tidak mengetengahkan teori akademik yang sukar difahami. Kami hanya menyediakan sistem pengurusan lengkap yang menyekat ketirisan operasi dan meningkatkan keupayaan jualan.</p>
                 </div>
 
                 <div class="space-y-32">
-                    <!-- Point 01: 销售与成交系统 -->
+                    <!-- Point 01: Jualan dan Sistem Penutupan Urus Niaga -->
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                         <div class="lg:col-span-7 space-y-6">
                             <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
                                 <i data-lucide="handshake" class="w-6 h-6"></i>
                             </div>
                             <span class="block text-xs font-semibold text-indigo-400 tracking-wider uppercase">Sales & Conversion</span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">销售与成交系统</h3>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">Sistem Jualan dan Penutupan Urus Niaga</h3>
                             <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
-                                解决工厂“有单不敢接，接了利润薄”的困境。我们协助建立标准化的报价与谈判机制，剔除无效低价竞争，打造一套能够主动获客、高客单精准转化的成交逻辑。
+                                Menyelesaikan masalah kilang yang "bimbang untuk menerima tempahan berskala besar, tetapi jika diterima, margin keuntungan pula terlalu tipis". Kami membantu membina mekanisme sebut harga dan rundingan yang standard bagi mengelakkan persaingan harga murah, di samping membina logik jualan proaktif untuk penukaran prospek bernilai tinggi secara konsisten.
                             </p>
                         </div>
                         <div class="lg:col-span-5 relative group flex justify-center lg:justify-end">
                             <div class="absolute -inset-2 bg-gradient-to-tr from-indigo-600/20 to-indigo-600/10 rounded-3xl blur-lg opacity-80 group-hover:opacity-100 transition-opacity max-w-[75%] w-full"></div>
                             <div class="relative rounded-3xl overflow-hidden border border-white/10 aspect-[16/10] bg-zinc-950 max-w-[75%] w-full">
-                                <img src="images/sales.jpg" alt="Sales and Conversion" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-90 contrast-110" onerror="this.src='https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80';">
+                                <img src="images/sales.jpg" alt="Jualan dan Penutupan Jualan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-90 contrast-110" onerror="this.src='https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80';">
                             </div>
                         </div>
                     </div>
 
-                    <!-- Point 02: 员工管理系统 -->
+                    <!-- Point 02: Sistem Pengurusan Kakitangan -->
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                         <div class="lg:col-span-5 order-last lg:order-first relative group flex justify-center lg:justify-start">
                             <div class="absolute -inset-2 bg-gradient-to-tr from-purple-600/20 to-purple-600/10 rounded-3xl blur-lg opacity-80 group-hover:opacity-100 transition-opacity max-w-[75%] w-full"></div>
                             <div class="relative rounded-3xl overflow-hidden border border-white/10 aspect-[16/10] bg-zinc-950 max-w-[75%] w-full">
-                                <img src="images/staff.jpg" alt="Staff Management" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-90 contrast-110" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80';">
+                                <img src="images/staff.jpg" alt="Pengurusan Kakitangan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-90 contrast-110" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80';">
                             </div>
                         </div>
                         <div class="lg:col-span-7 space-y-6">
@@ -372,39 +371,39 @@
                                 <i data-lucide="users" class="w-6 h-6"></i>
                             </div>
                             <span class="block text-xs font-semibold text-purple-400 tracking-wider uppercase">Staff Management</span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">员工管理系统</h3>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">Sistem Pengurusan Kakitangan</h3>
                             <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
-                                彻底告别“师傅一请假，车间全瘫痪”的焦虑。我们通过可视化 SOP 与梯队人才培养体系，让每一个岗位的技术都能被传承与复制，实现工厂真正意义上的自主独立运作。
+                                Menghilangkan kebimbangan "apabila pekerja mahir mengambil cuti sakit, seluruh stesen kerja kilang menjadi lumpuh". Melalui penggunaan SOP visual dan sistem latihan bakat berperingkat, kami memastikan kemahiran setiap jawatan dapat diwarisi dan direplikasi bagi membolehkan kilang beroperasi secara berdikari sepenuhnya.
                             </p>
                         </div>
                     </div>
 
-                    <!-- Point 03: 工程与财务管理系统 -->
+                    <!-- Point 03: Sistem Pengurusan Kejuruteraan & Kewangan -->
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                         <div class="lg:col-span-7 space-y-6">
                             <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
                                 <i data-lucide="calculator" class="w-6 h-6"></i>
                             </div>
                             <span class="block text-xs font-semibold text-emerald-400 tracking-wider uppercase">Engineering & Finance</span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">工程与财务管理系统</h3>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">Sistem Pengurusan Kejuruteraan & Kewangan</h3>
                             <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
-                                财务不仅是记账，更是防亏避险的指挥棒。我们通过全流程工程损耗管控，把控每一道工序的隐形漏钱点，让从订单下达到项目结算的每一个利润环节，都清晰透明，让管理不再凭感觉。
+                                Jabatan kewangan bukan sekadar menyimpan kira-kira, malah berfungsi sebagai petunjuk penting untuk mencegah kerugian dan mengurus risiko. Melalui kawalan menyeluruh ke atas pembaziran kerja kejuruteraan, kami memantau setiap ketirisan wang yang tersembunyi bagi memastikan setiap rantaian keuntungan adalah telus dari mula pesanan hingga ke fasa pembayaran.
                             </p>
                         </div>
                         <div class="lg:col-span-5 relative group flex justify-center lg:justify-end">
                             <div class="absolute -inset-2 bg-gradient-to-tr from-emerald-600/20 to-emerald-600/10 rounded-3xl blur-lg opacity-80 group-hover:opacity-100 transition-opacity max-w-[75%] w-full"></div>
                             <div class="relative rounded-3xl overflow-hidden border border-white/10 aspect-[16/10] bg-zinc-950 max-w-[75%] w-full">
-                                <img src="images/finance.jpg" alt="Finance Management" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-90 contrast-110" onerror="this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80';">
+                                <img src="images/finance.jpg" alt="Pengurusan Kewangan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-90 contrast-110" onerror="this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80';">
                             </div>
                         </div>
                     </div>
 
-                    <!-- Point 04: 企业扩张系统 -->
+                    <!-- Point 04: Sistem Perkembangan Perniagaan -->
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                         <div class="lg:col-span-5 order-last lg:order-first relative group flex justify-center lg:justify-start">
                             <div class="absolute -inset-2 bg-gradient-to-tr from-rose-600/20 to-rose-600/10 rounded-3xl blur-lg opacity-80 group-hover:opacity-100 transition-opacity max-w-[75%] w-full"></div>
                             <div class="relative rounded-3xl overflow-hidden border border-white/10 aspect-[16/10] bg-zinc-950 max-w-[75%] w-full">
-                                <img src="images/scaling.jpg" alt="Scaling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-90 contrast-110" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80';">
+                                <img src="images/scaling.jpg" alt="Perkembangan Perniagaan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-90 contrast-110" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80';">
                             </div>
                         </div>
                         <div class="lg:col-span-7 space-y-6">
@@ -412,9 +411,9 @@
                                 <i data-lucide="layers" class="w-6 h-6"></i>
                             </div>
                             <span class="block text-xs font-semibold text-rose-400 tracking-wider uppercase">Expansion System</span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">企业扩张系统</h3>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">Sistem Perkembangan Perniagaan</h3>
                             <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
-                                从单厂 model 迈向多区域版图，扩张最怕的不是资金不够，而是管理失控。我们将成功工段的盈利模型标准化，让您的企业能够实现跨区域的快速复制，在扩张中依然保持高利润与高标准。
+                                Membantu perniagaan beralih daripada model kilang tunggal kepada pasaran pelbagai kawasan. Risiko terbesar dalam fasa perkembangan bukanlah kekurangan modal, tetapi kegagalan kawalan pengurusan. Kami menyeragamkan model keuntungan dari cawangan yang berjaya, membolehkan perniagaan anda direplikasi dengan cepat di kawasan lain sambil mengekalkan kualiti standard dan margin keuntungan yang tinggi.
                             </p>
                         </div>
                     </div>
@@ -422,69 +421,69 @@
             </div>
         </section>
 
-        <!-- Glozons 利润流失与系统收益动态模拟器 -->
+        <!-- Simulator Dinamik Hasil Jualan Minimum Glozons -->
         <section id="simulator" class="py-24 bg-[#06031f] relative overflow-hidden border-t border-b border-white/[0.03]">
             <div class="absolute inset-0 grid-mask bg-black-100 pointer-events-none"></div>
             <div class="relative z-10 max-w-7xl mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold tracking-widest text-amber-400 uppercase bg-amber-500/10 border border-amber-500/20 rounded-full">PROFIT SIMULATOR</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-4">工厂保本与盈利所需营业额计算器</h2>
+                    <span class="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold tracking-widest text-amber-400 uppercase bg-amber-500/10 border border-amber-500/20 rounded-full">SIMULATOR KEUNTUNGAN</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-4">Kalkulator Hasil Jualan Sasaran Bagi Titik Pulang Modal Kilang</h2>
                     <p class="mt-4 text-gray-400 text-sm leading-relaxed">
-                        基于真实铁厂基本薪酬体系与行业平均毛利底线，快速试算要支撑起您当前的团队并实现您的理想薪资，工厂每月和每年必须达到的最低营业额：
+                        Berdasarkan sistem skim gaji asas kilang besi fizikal serta purata margin untung kasar industri, hitung dengan pantas jumlah hasil jualan bulanan dan tahunan minimum yang diperlukan oleh kilang anda untuk menyara pasukan sedia ada serta mencapai sasaran pendapatan impian anda:
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                    <!-- 输入滑块区 -->
+                    <!-- Gelongsor Input Data -->
                     <div class="lg:col-span-7 bg-zinc-950/40 border border-white/5 p-8 rounded-3xl space-y-10">
                         <div>
                             <div class="flex justify-between items-center mb-3">
-                                <label class="text-sm font-semibold text-gray-200">员工人数 (人)</label>
-                                <span class="text-lg font-bold text-white px-3 py-1 bg-indigo-500/10 border border-indigo-500/20 rounded-lg" id="val-staff-txt">5 人</span>
+                                <label class="text-sm font-semibold text-gray-200">Bilangan Kakitangan (Orang)</label>
+                                <span class="text-lg font-bold text-white px-3 py-1 bg-indigo-500/10 border border-indigo-500/20 rounded-lg" id="val-staff-txt">5 Orang</span>
                             </div>
-                            <p class="text-xs text-gray-500 mb-4">指技术工、组装工人、日常运营普工等实际参与生产或后勤的员工总人数。</p>
+                            <p class="text-xs text-gray-500 mb-4">Merujuk kepada bilangan pekerja teknikal, pemasang, dan kakitangan am yang terlibat secara langsung dalam pengeluaran dan operasi harian kilang.</p>
                             <input type="range" id="sim-staff" min="1" max="20" step="1" value="5" oninput="calcSimulator()" class="w-full h-1.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-indigo-500">
                         </div>
 
                         <div>
                             <div class="flex justify-between items-center mb-3">
-                                <label class="text-sm font-semibold text-gray-200">老板想要的月薪 (RM)</label>
+                                <label class="text-sm font-semibold text-gray-200">Gaji Bulanan Sasaran Pemilik (RM)</label>
                                 <span class="text-lg font-bold text-amber-400 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-lg" id="val-salary-txt">RM 5,000</span>
                             </div>
-                            <p class="text-xs text-gray-500 mb-4">作为工厂实际拥有人或投资合伙人，您每月合理期望从企业净拿到的个人薪资/分红回报。</p>
+                            <p class="text-xs text-gray-500 mb-4">Sebagai pemilik atau rakan kongsi pelabur kilang, ini adalah jumlah gaji bulanan munasabah atau pulangan dividen yang anda harapkan daripada perniagaan.</p>
                             <input type="range" id="sim-salary" min="1000" max="20000" step="500" value="5000" oninput="calcSimulator()" class="w-full h-1.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-amber-500">
                         </div>
                     </div>
 
-                    <!-- 计算结果可视化区 -->
+                    <!-- Keputusan Simulasi Visual -->
                     <div class="lg:col-span-5 bg-gradient-to-b from-[#130d35] to-[#0a0521] border border-indigo-500/20 p-8 rounded-3xl relative overflow-hidden flex flex-col justify-between min-h-[420px]">
                         <div class="absolute inset-0 bg-indigo-500/[0.02] pointer-events-none"></div>
                         
                         <div class="space-y-6">
-                            <h4 class="text-md font-bold tracking-wider text-indigo-400 uppercase">Glozons 盈亏平衡测算报告</h4>
+                            <h4 class="text-md font-bold tracking-wider text-indigo-400 uppercase">Laporan Anggaran Titik Pulang Modal Glozons</h4>
                             <div class="glow-line"></div>
                             
                             <div>
-                                <span class="text-xs text-gray-400 uppercase tracking-wider block">每月所需最低营业额 (RM)</span>
+                                <span class="text-xs text-gray-400 uppercase tracking-wider block">Hasil Jualan Bulanan Minimum yang Diperlukan (RM)</span>
                                 <div class="flex items-baseline gap-1 mt-1 text-white">
                                     <span class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300" id="calc-monthly-rev">RM 51,000</span>
                                 </div>
                                 <span class="text-xs text-gray-500 mt-2 block leading-relaxed">
-                                    算法模型：根据团队底置时薪、老板薪资期望反推，折算行业平均毛利率，并自动向上圆整至最接近的千位数。
+                                    Model Algoritma: Berdasarkan kos upah asas pasukan dan sasaran pendapatan pemilik, dikira mengikut kadar margin untung kasar purata industri, serta dibundarkan kepada nilai ribu terdekat.
                                 </span>
                             </div>
 
                             <div class="p-5 rounded-2xl bg-zinc-950/50 border border-indigo-500/20">
                                 <span class="text-xs text-indigo-400 font-bold block mb-1 flex items-center gap-1">
                                     <i data-lucide="zap" class="w-3.5 h-3.5 text-indigo-400 animate-pulse"></i>
-                                    对应每年所需营业额目标：
+                                    Sasaran Hasil Jualan Setahun yang Setaraf:
                                 </span>
                                 <div class="flex items-baseline gap-1 text-amber-400">
                                     <span class="text-2xl sm:text-3xl font-black" id="calc-annual-rev">RM 612,000</span>
-                                    <span class="text-xs font-semibold">/ 年</span>
+                                    <span class="text-xs font-semibold">/ Tahun</span>
                                 </div>
                                 <p class="text-[11px] text-gray-400 mt-2 leading-relaxed">
-                                    要达到上述数字且不亏损，不仅需要合理的定价策略，更需要一套极致无损的工段标准系统。
+                                    To mencapai angka di atas tanpa mengalami kerugian, anda bukan sahaja memerlukan strategi penetapan harga yang betul, malah sistem standard stesen kerja yang sangat cekap.
                                 </p>
                             </div>
                         </div>
@@ -493,53 +492,53 @@
             </div>
         </section>
 
-        <!-- 极光实地纪实画廊 -->
+        <!-- Galeri Kejujuran Dokumentasi Lapangan Kilang -->
         <section id="gallery" class="py-24 bg-black relative overflow-hidden border-b border-white/[0.03]">
             <div class="absolute inset-0 grid-mask bg-black-100 pointer-events-none"></div>
             <div class="absolute w-[600px] h-[600px] bg-purple-900/10 rounded-full filter blur-[130px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
             
             <div class="relative z-10 max-w-7xl mx-auto px-6">
-                <!-- 画廊标题 -->
+                <!-- Kepala Galeri -->
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <span class="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold tracking-widest text-orange-400 uppercase bg-orange-500/10 border border-orange-500/20 rounded-full">
-                        FIELD PARTNERS & TEAMS
+                        RAKAN NIAGA DAN PASUKAN LAPANGAN
                     </span>
                     <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-4">
-                        并肩作战：Glozons 与合作工厂团队纪实
+                        Menggenggam Kejayaan: Glozons & Rakan Kilang Pembuatan Besi
                     </h2>
                     <p class="mt-4 text-gray-400 text-sm">
-                        每一个成功转型的工厂背后，都有一群满脸汗水却目光坚定的实干家。我们深入车间一线，手把手带团队建立系统。
+                        Di sebalik setiap kilang yang berjaya beralih sistem, terdapat sekumpulan usahawan yang gigih bekerja keras. Kami turun terus ke tapak kilang untuk membina sistem bersama pasukan anda secara praktikal.
                     </p>
 
-                    <!-- 三大高精度指标卡片 (蓝/橙/绿) -->
+                    <!-- Kad Petunjuk Prestasi Utama (Biru/Oren/Hijau) -->
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 max-w-5xl mx-auto text-left">
-                        <!-- 卡片 1: 极光深蓝/靛蓝 - 实体工厂 -->
+                        <!-- Kad 1: Kilang Fizikal -->
                         <div class="p-8 rounded-3xl bg-[#090b24]/40 border border-blue-500/10 hover:border-blue-400/40 hover:bg-[#0c0f33]/60 transition-all text-center relative overflow-hidden group shadow-lg shadow-blue-950/10">
                             <div class="absolute -top-10 -right-10 w-24 h-24 bg-blue-500/5 rounded-full filter blur-xl group-hover:bg-blue-500/10 transition-colors"></div>
-                            <div class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-blue-200">5 个</div>
-                            <div class="text-xs font-bold text-blue-400 uppercase tracking-widest mt-3">实体工厂</div>
-                            <p class="text-xs text-zinc-300 font-medium mt-3 leading-relaxed">跨州真金白银运营验证</p>
+                            <div class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-blue-200">5 Buah</div>
+                            <div class="text-xs font-bold text-blue-400 uppercase tracking-widest mt-3">Kilang Fizikal</div>
+                            <p class="text-xs text-zinc-300 font-medium mt-3 leading-relaxed">Berjaya diselaraskan dan beroperasi di pelbagai negeri</p>
                         </div>
 
-                        <!-- 卡片 2: 热力熔岩橙 - 成本下降 -->
+                        <!-- Kad 2: Pengurangan Kos -->
                         <div class="p-8 rounded-3xl bg-[#210f09]/40 border border-orange-500/10 hover:border-orange-400/40 hover:bg-[#30160c]/60 transition-all text-center relative overflow-hidden group shadow-lg shadow-orange-950/10">
                             <div class="absolute -top-10 -right-10 w-24 h-24 bg-orange-500/5 rounded-full filter blur-xl group-hover:bg-orange-500/10 transition-colors"></div>
                             <div class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-orange-200">15%</div>
-                            <div class="text-xs font-bold text-orange-400 uppercase tracking-widest mt-3">成本下降</div>
-                            <p class="text-xs text-zinc-300 font-medium mt-3 leading-relaxed">消灭看不见的材料浪费</p>
+                            <div class="text-xs font-bold text-orange-400 uppercase tracking-widest mt-3">Pengurangan Kos</div>
+                            <p class="text-xs text-zinc-300 font-medium mt-3 leading-relaxed">Menghapuskan pembaziran bahan mentah yang tidak disedari</p>
                         </div>
 
-                        <!-- 卡片 3: 生态翡翠绿 - 利润提升 -->
+                        <!-- Kad 3: Peningkatan Untung -->
                         <div class="p-8 rounded-3xl bg-[#092215]/40 border border-emerald-500/10 hover:border-emerald-400/40 hover:bg-[#0c301d]/60 transition-all text-center relative overflow-hidden group shadow-lg shadow-emerald-950/10">
                             <div class="absolute -top-10 -right-10 w-24 h-24 bg-emerald-500/5 rounded-full filter blur-xl group-hover:bg-emerald-500/10 transition-colors"></div>
                             <div class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-emerald-200">25%</div>
-                            <div class="text-xs font-bold text-emerald-400 uppercase tracking-widest mt-3">利润提升</div>
-                            <p class="text-xs text-zinc-300 font-medium mt-3 leading-relaxed">通过系统重塑工程效率</p>
+                            <div class="text-xs font-bold text-emerald-400 uppercase tracking-widest mt-3">Peningkatan Untung</div>
+                            <p class="text-xs text-zinc-300 font-medium mt-3 leading-relaxed">Sistem baharu yang memaksimumkan kecekapan pengeluaran</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- 轮播区 -->
+                <!-- Bahagian Slaid Gambar -->
                 <div class="relative h-[280px] sm:h-[420px] w-full flex items-center justify-center overflow-visible">
                     <div class="relative w-full max-w-[720px] h-full flex items-center justify-center">
                         <!-- Slide 1 -->
@@ -551,7 +550,7 @@
                                     <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-orange-500"></div>
                                     <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-orange-500"></div>
                                 </div>
-                                <img src="images/factory1.png" alt="工厂冶炼控制" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1000&q=80';">
+                                <img src="images/factory1.png" alt="Sistem Kawalan Peleburan Kilang" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1000&q=80';">
                             </div>
                         </div>
 
@@ -564,7 +563,7 @@
                                     <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-orange-500"></div>
                                     <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-orange-500"></div>
                                 </div>
-                                <img src="images/factory2.png" alt="工业自动化机械" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80';">
+                                <img src="images/factory2.png" alt="Jentera Automasi Industri" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80';">
                             </div>
                         </div>
 
@@ -577,7 +576,7 @@
                                     <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-orange-500"></div>
                                     <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-orange-500"></div>
                                 </div>
-                                <img src="images/factory3.png" alt="智能重工业物流" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=80';">
+                                <img src="images/factory3.png" alt="Logistik Industri Berat Pintar" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=80';">
                             </div>
                         </div>
 
@@ -590,7 +589,7 @@
                                     <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-orange-500"></div>
                                     <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-orange-500"></div>
                                 </div>
-                                <img src="images/factory4.png" alt="营运看板面板" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80';">
+                                <img src="images/factory4.png" alt="Paparan Sistem Operasi Visual" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80';">
                             </div>
                         </div>
 
@@ -603,13 +602,13 @@
                                     <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-orange-500"></div>
                                     <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-orange-500"></div>
                                 </div>
-                                <img src="images/factory5.png" alt="班组专家研讨" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=1000&q=80';">
+                                <img src="images/factory5.png" alt="Sesi Perbincangan Teknikal Bersama Pakar" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=1000&q=80';">
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 左右选择按钮 -->
+                <!-- Butang Kawalan Slaid Sisi -->
                 <div class="absolute -bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-4 z-40">
                     <button onclick="prevSlide()" class="w-10 h-10 rounded-full border border-white/15 hover:border-indigo-500 flex items-center justify-center text-gray-400 hover:text-white transition-all focus:outline-none bg-black/40 backdrop-blur-md">
                         <i data-lucide="chevron-left" class="w-5 h-5"></i>
@@ -620,20 +619,20 @@
                 </div>
             </div>
 
-            <!-- 描述 -->
+            <!-- Penerangan Lokasi Slaid Gambar -->
             <div class="text-center mt-20">
                 <p id="slider-caption" class="text-sm font-semibold tracking-wider text-gray-300 transition-all duration-500 min-h-[20px]">
-                    马六甲工厂
+                    Kilang Melaka
                 </p>
             </div>
         </section>
 
-        <!-- 极光联结 Banner 板块 -->
+        <!-- Seksyen Banner Kejayaan Komitmen Glozons -->
         <section id="success-banner" class="relative py-32 bg-[#030014] overflow-hidden border-t border-b border-white/[0.04] flex items-center">
-            <!-- 全宽拉伸贯穿背景图层 -->
+            <!-- Imej Latar Belakang Struktur Berskala Lebar -->
             <div class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden select-none z-0">
                 <img src="images/success-bg.jpg" 
-                     alt="Glozons Technology Global Net Solutions Background" 
+                     alt="Latar Belakang Korporat Glozons" 
                      class="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.1] opacity-85"
                      onerror="this.src='https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80';">
                 <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent"></div>
@@ -643,11 +642,11 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     <div class="lg:col-span-8 text-left space-y-8">
                         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
-                            让我们成为您成功路上的一员！
+                            Mari Kami Bantu Membina Kejayaan Kilang Anda Bersama-sama!
                         </h2>
                         <div class="pt-2">
                             <button onclick="window.open('https://forms.gle/NvbcChnv743WPjYQ8', '_blank')" class="inline-flex items-center gap-4 px-8 py-4 border border-indigo-500/40 hover:border-indigo-400 bg-black/40 hover:bg-indigo-500/10 text-white font-semibold text-sm transition-all duration-300 group shadow-lg shadow-black/50 active:scale-95 backdrop-blur-sm">
-                                <span>马上联系我们</span>
+                                <span>Hubungi Kami Segera</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 text-indigo-400 group-hover:translate-x-1 transition-transform duration-300"></i>
                             </button>
                         </div>
@@ -657,158 +656,158 @@
         </section>
     </main>
 
-    <!-- 主体视图：关于我们 (独立分页) -->
+    <!-- Seksyen Utama: Tentang Kami (Halaman Terasing) -->
     <main id="view-about" class="hidden animate-fade-in-up min-h-screen pt-28 bg-black relative">
         <div class="absolute inset-0 grid-mask bg-black-100 pointer-events-none z-0"></div>
         <div class="absolute w-[600px] h-[600px] bg-purple-900/10 rounded-full filter blur-[150px] top-10 right-10 pointer-events-none"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 pb-24">
-            <!-- 返回主页按钮 -->
+            <!-- Butang Kembali Ke Laman Utama -->
             <button onclick="navigateTo('home')" class="mb-8 inline-flex items-center gap-2 text-xs font-semibold text-indigo-400 hover:text-indigo-300 transition-all bg-indigo-500/10 hover:bg-indigo-500/20 px-4 py-2 rounded-xl border border-indigo-500/20">
                 <i data-lucide="arrow-left" class="w-4 h-4"></i>
-                返回主页
+                Kembali ke Laman Utama
             </button>
 
-            <!-- 页面头部 -->
+            <!-- Pengenalan Halaman Tentang Kami -->
             <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
                 <span class="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold tracking-widest text-indigo-light uppercase bg-indigo-glow/10 border border-indigo-glow/20 rounded-full">ABOUT GLOZONS</span>
-                <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">关于我们</h1>
-                <h3 class="text-2xl sm:text-3xl font-bold text-indigo-400 mt-2">现场实战是最好的老师</h3>
+                <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">Tentang Kami</h1>
+                <h3 class="text-2xl sm:text-3xl font-bold text-indigo-400 mt-2">Pengalaman Praktikal di Lapangan Adalah Guru Terbaik</h3>
                 <p class="text-gray-400 text-sm sm:text-base leading-relaxed mt-6 text-left sm:text-center">
-                    在 Glozons，我们的办公室不是高楼大厦里的白领格子间，而是机器轰鸣、焊花飞溅的重工业生产线。我们亲手解决过供应链制约，亲历过钢材等重工业周期的起伏巨变，所有战术指标均在自己运营的真实的重工业铁厂中受过血火淬炼，只谈落地，不谈空论。
+                    Di Glozons, pejabat kami bukanlah ruang pejabat berhawa dingin di dalam bangunan pencakar langit, sebaliknya di barisan pengeluaran industri berat yang dipenuhi deruan enjin dan percikan api kimpalan. Kami sendiri telah menyelesaikan kekangan rantaian bekalan, mengharungi pasang surut kitaran industri berat seperti keluli, dan setiap penunjuk taktikal kami telah diuji secara nyata dalam kilang pembuatan besi sebenar kami yang sedang beroperasi. Kami hanya memperkatakan tentang pelaksanaan praktikal, bukannya teori kosong.
                 </p>
             </div>
 
-            <!-- 数据展示板块 -->
+            <!-- Paparan Data Statistik Korporat -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
                 <div class="p-8 rounded-2xl bg-white/[0.015] backdrop-blur-md border border-white/[0.015] hover:border-indigo-500/30 hover:bg-white/[0.04] text-center transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-indigo-500/10">
                     <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mx-auto mb-6">
                         <i data-lucide="line-chart" class="w-6 h-6"></i>
                     </div>
                     <div class="text-4xl font-black text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-300">30%+</div>
-                    <p class="text-sm font-semibold text-indigo-400 uppercase tracking-widest mt-3">连续3年营业额稳步增长</p>
-                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">用跨周期的实体增长指标，向市场证明现代工业管理的科学逻辑</p>
+                    <p class="text-sm font-semibold text-indigo-400 uppercase tracking-widest mt-3">Pertumbuhan Hasil Jualan Konsisten Selama 3 Tahun Berturut-turut</p>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Membuktikan kepada pasaran tentang keberkesanan kaedah pengurusan industri yang saintifik merentasi fasa ekonomi yang mencabar.</p>
                 </div>
                 <div class="p-8 rounded-2xl bg-white/[0.015] backdrop-blur-md border border-white/[0.015] hover:border-purple-500/30 hover:bg-white/[0.04] text-center transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-purple-500/10">
                     <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mx-auto mb-6">
                         <i data-lucide="users" class="w-6 h-6"></i>
                     </div>
-                    <div class="text-4xl font-black text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-300">50++ 人</div>
-                    <p class="text-sm font-semibold text-purple-300 uppercase tracking-widest mt-3">骨干团队支撑</p>
-                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">由身经百战的现场生产工程师 and 数字化车间部署专家共同组成的精锐集体</p>
+                    <div class="text-4xl font-black text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-300">50++ Orang</div>
+                    <p class="text-sm font-semibold text-purple-300 uppercase tracking-widest mt-3">Sokongan Pasukan Teras</p>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Sekumpulan pakar yang terdiri daripada jurutera lapangan pengeluaran dan pakar integrasi digital di stesen kerja.</p>
                 </div>
                 <div class="p-8 rounded-2xl bg-white/[0.015] backdrop-blur-md border border-white/[0.015] hover:border-emerald-500/30 hover:bg-white/[0.04] text-center transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-emerald-500/10">
                     <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mx-auto mb-6">
                         <i data-lucide="map-pin" class="w-6 h-6"></i>
                     </div>
-                    <div class="text-4xl font-black text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-300">3 个州属</div>
-                    <p class="text-sm font-semibold text-emerald-300 uppercase tracking-widest mt-3">跨区域实地复制</p>
-                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">标准体系已在三个大中区域的铁厂、装配厂完美落地实践，不限地域</p>
+                    <div class="text-4xl font-black text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-300">3 Buah Negeri</div>
+                    <p class="text-sm font-semibold text-emerald-300 uppercase tracking-widest mt-3">Replikasi Praktikal Merentasi Wilayah</p>
+                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Sistem operasi standard kami telah diuji dan dilaksanakan dengan sempurna di kilang besi dan pemasangan di tiga buah negeri.</p>
                 </div>
             </div>
 
-            <!-- 实战团队照 + 愿景 & 使命板块 -->
+            <!-- Gambar Pasukan Lapangan & Bahagian Visi-Misi -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-6xl mx-auto mt-16 bg-zinc-950/40 p-8 sm:p-12 rounded-3xl border border-white/5 relative overflow-hidden">
                 <div class="absolute inset-0 bg-indigo-500/[0.01] pointer-events-none"></div>
                 
-                <!-- 1. 团队相片（左侧/上方） -->
+                <!-- Gambar Pasukan (Kiri) -->
                 <div class="lg:col-span-6 relative group">
                     <div class="absolute -inset-2 bg-gradient-to-tr from-indigo-500/10 to-purple-500/10 rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition-opacity"></div>
                     <div class="relative rounded-2xl overflow-hidden border border-white/10 aspect-[4/3] bg-zinc-900 shadow-xl">
                         <img src="images/team.jpg" 
-                             alt="Glozons 顾问团队合影" 
+                             alt="Kumpulan Perunding Glozons" 
                              class="w-full h-full object-cover filter brightness-90 contrast-110 group-hover:scale-[1.03] transition-transform duration-700"
                              onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80';">
                         <div class="absolute inset-0 bg-gradient-to-t from-black-100/90 via-transparent to-transparent flex items-end p-6">
                             <span class="text-xs font-bold tracking-widest text-indigo-300 uppercase flex items-center gap-1.5">
                                 <span class="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-ping"></span>
-                                GLOZONS TEAM / 实战专家团队合影
+                                PASUKAN GLOZONS / BARISAN PERUNDING PAKAR INDUSTRI
                             </span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2. 愿景 & 使命（右侧/下方） -->
+                <!-- Teks Visi & Misi (Kanan) -->
                 <div class="lg:col-span-6 space-y-8">
-                    <!-- 企业愿景 -->
+                    <!-- Visi Syarikat -->
                     <div class="space-y-3">
                         <div class="flex items-center gap-3">
                             <div class="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
                                 <i data-lucide="eye" class="w-4 h-4"></i>
                             </div>
-                            <span class="text-xs font-bold text-indigo-400 tracking-wider uppercase">OUR VISION / 企业愿景</span>
+                            <span class="text-xs font-bold text-indigo-400 tracking-wider uppercase">OUR VISION / VISI KORPORAT</span>
                         </div>
-                        <h3 class="text-xl sm:text-2xl font-black text-white">成为马来西亚铁厂行业的行业标杆</h3>
+                        <h3 class="text-xl sm:text-2xl font-black text-white">Menjadi Penanda Aras Utama dalam Industri Kilang Besi di Malaysia</h3>
                         <p class="text-sm text-gray-400 leading-relaxed">
-                            致力于在全马范围内树立精益铁厂管理与系统化运营的最高标准，以实战经验和标准化逻辑，引领行业告别传统脆弱的人治，走向可复制、可持续繁荣的未来。
+                            Komited untuk mewujudkan standard tertinggi bagi pengurusan kilang besi yang cekap dan bersistem di seluruh negara. Kami berusaha membimbing industri ini untuk meninggalkan urus tadbir konvensional yang rapuh dan beralih kepada pengurusan berstruktur yang membolehkan pertumbuhan lestari.
                         </p>
                     </div>
 
-                    <!-- 动态分割线 -->
+                    <!-- Garisan Aliran Bercahaya -->
                     <div class="glow-line"></div>
 
-                    <!-- 企业使命 -->
+                    <!-- Misi Syarikat -->
                     <div class="space-y-3">
                         <div class="flex items-center gap-3">
                             <div class="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
                                 <i data-lucide="award" class="w-4 h-4"></i>
                             </div>
-                            <span class="text-xs font-bold text-purple-400 tracking-wider uppercase">OUR MISSION / 企业使命</span>
+                            <span class="text-xs font-bold text-purple-400 tracking-wider uppercase">OUR MISSION / MISI KORPORAT</span>
                         </div>
-                        <h3 class="text-xl sm:text-2xl font-black text-white">协助团队用 3 年时间，创造相当于 10 年的财富收益</h3>
+                        <h3 class="text-xl sm:text-2xl font-black text-white">Membantu Pasukan Mencapai Pulangan Kewangan Setaraf 10 Tahun dalam Tempoh Hanya 3 Tahun</h3>
                         <p class="text-sm text-gray-400 leading-relaxed">
-                            通过建立极具竞争力的组织系统 and 提效底座，全面赋能我们的团队，用仅仅 3 年的高效科学运转，实现并提前锁定通常需要 10 年时间才能累积的企业总收益与个人价值。
+                            Melalui pembinaan sistem pengurusan kerja yang berdaya saing tinggi serta struktur operasi yang cekap, kami memperkasakan seluruh rantaian perniagaan bagi membolehkan syarikat memaksimumkan nilai kewangan dalam masa yang lebih singkat.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- 企业文化板块 -->
+            <!-- Blok Nilai-Nilai Teras Syarikat -->
             <div class="mt-24 max-w-6xl mx-auto">
                 <div class="text-center mb-12">
-                    <span class="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold tracking-widest text-indigo-400 uppercase bg-indigo-500/10 border border-indigo-500/20 rounded-full">CORE VALUES / 企业文化</span>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-4">我们坚守的价值观底层基因</h2>
+                    <span class="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold tracking-widest text-indigo-400 uppercase bg-indigo-500/10 border border-indigo-500/20 rounded-full">CORE VALUES / NILAI-NILAI TERAS</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-4">Asas Budaya Kerja yang Kami Amalkan</h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- 文化卡片 1: 主观意愿 -->
+                    <!-- Nilai 1: Kesediaan Peribadi -->
                     <div class="p-8 rounded-2xl bg-[#090b24]/40 border border-blue-500/10 hover:border-blue-400/30 hover:bg-[#0c0f33]/60 transition-all group relative overflow-hidden">
                         <div class="absolute -top-10 -right-10 w-20 h-20 bg-blue-500/5 rounded-full filter blur-xl group-hover:bg-blue-500/10 transition-colors"></div>
                         <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-6">
                             <i data-lucide="heart" class="w-5 h-5 animate-pulse"></i>
                         </div>
                         <h3 class="text-lg font-black text-white flex items-center gap-2">
-                            <span>主观意愿</span>
+                            <span>Sikap Proaktif</span>
                         </h3>
                         <p class="text-sm text-gray-300 leading-relaxed mt-4">
-                            <strong>凡事以“愿意”为始。</strong>我们鼓励突破岗位边界的主动担当。不仅是履行本职，更是面对未知挑战时，甘愿为团队多走一步、主动分担的责任热忱与付出精神。
+                            <strong>Segalanya bermula dengan kesediaan diri sendiri.</strong> Kami menggalakkan inisiatif individu untuk melangkaui skop tugas biasa. Ini bukan sekadar memenuhi tanggungjawab hakiki, malah kesediaan untuk memikul cabaran baharu dan bekerjasama demi membantu kejayaan seluruh pasukan.
                         </p>
                     </div>
 
-                    <!-- 文化卡片 2: 优良态度 -->
+                    <!-- Nilai 2: Sikap yang Baik -->
                     <div class="p-8 rounded-2xl bg-[#210f09]/40 border border-orange-500/10 hover:border-orange-400/30 hover:bg-[#30160c]/60 transition-all group relative overflow-hidden">
                         <div class="absolute -top-10 -right-10 w-20 h-20 bg-orange-500/5 rounded-full filter blur-xl group-hover:bg-orange-500/10 transition-colors"></div>
                         <div class="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 mb-6">
                             <i data-lucide="user-check" class="w-5 h-5"></i>
                         </div>
                         <h3 class="text-lg font-black text-white flex items-center gap-2">
-                            <span>优良态度</span>
+                            <span>Sikap Positif</span>
                         </h3>
                         <p class="text-sm text-gray-300 leading-relaxed mt-4">
-                            <strong>态度决定高度，技能可以传授，但态度无可替代。</strong>我们推崇始终如一的踏实、敬畏与谦虚。坚持脚踏实地工作，严苛贯彻标准，不打折扣，对客户与工艺始终心怀敬畏。
+                            <strong>Sikap menentukan pencapaian. Kemahiran boleh dilatih, tetapi sikap adalah asas utama.</strong> Kami menekankan kepentingan sikap amanah, tekun, dan merendah diri. Ini termasuk komitmen tinggi untuk melunaskan tugasan mengikut prosedur standard tanpa sebarang kompromi.
                         </p>
                     </div>
 
-                    <!-- 文化卡片 3: 胜任能力 -->
+                    <!-- Nilai 3: Kebolehan Beraksi -->
                     <div class="p-8 rounded-2xl bg-[#092215]/40 border border-emerald-500/10 hover:border-emerald-400/30 hover:bg-[#0c301d]/60 transition-all group relative overflow-hidden">
                         <div class="absolute -top-10 -right-10 w-20 h-20 bg-emerald-500/5 rounded-full filter blur-xl group-hover:bg-emerald-500/10 transition-colors"></div>
                         <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6">
                             <i data-lucide="zap" class="w-5 h-5"></i>
                         </div>
                         <h3 class="text-lg font-black text-white flex items-center gap-2">
-                            <span>胜任能力</span>
+                            <span>Kompetensi Tugas</span>
                         </h3>
                         <p class="text-sm text-gray-300 leading-relaxed mt-4">
-                            <strong>能力是尊严的底线，实战是唯一的标准。</strong>不唯学历，只唯结果。我们致力于全方位赋能团队，使每个人都具备坚实的执行力、问题解决力与系统管理力，在实操中创造真实的经济效益。
+                            <strong>Keupayaan adalah kunci kejayaan, pencapaian sebenar adalah penentu nilai.</strong> Kami menilai berdasarkan hasil kerja dan keberkesanan pelaksanaan tugasan. Kami komited untuk membantu melatih pasukan anda meningkatkan kompetensi bagi menyelesaikan masalah dengan cekap di lapangan.
                         </p>
                     </div>
                 </div>
@@ -816,17 +815,16 @@
         </div>
     </main>
 
-    <!-- 公用页脚 -->
+    <!-- Kaki Halaman Rasmi Syarikat -->
     <footer id="contact" class="bg-black text-gray-500 border-t border-white/[0.04] pt-24 pb-12 relative z-20">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-16 items-start">
                 
-                <!-- 左侧：品牌形象与简介 (占 5 栏) -->
+                <!-- Jenama and Pengenalan Ringkas (5 Bahagian) -->
                 <div class="lg:col-span-5 space-y-6">
                     <button onclick="navigateTo('home')" class="flex items-center gap-3 focus:outline-none group text-left">
-                        <!-- 只保留完美的 Logo 图像，移除所有 HTML 文本防止产生重合 -->
                         <div class="relative h-10 w-auto flex items-center justify-center">
-                            <img src="images/logo.jpg" alt="Glozons Logo" class="h-10 w-auto object-contain invert" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="images/logo.jpg" alt="Logo Glozons" class="h-10 w-auto object-contain invert" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <div class="hidden w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 items-center justify-center shadow-lg shadow-indigo-500/20">
                                 <i data-lucide="shield" class="w-4 h-4 text-white"></i>
                             </div>
@@ -834,21 +832,21 @@
                     </button>
                     
                     <p class="text-gray-400 max-w-md leading-relaxed text-sm font-medium">
-                        我们坚信：最好的管理咨询，一定源自满身铁锈、焊痕与汗水的一线实干家。我们在铁厂活了过来，现在轮到带您的工厂走向系统化、规模化。
+                        Kami percaya: khidmat nasihat pengurusan industri terbaik terhasil daripada gandingan pengalaman praktikal di lapangan pengeluaran. Kami telah membuktikannya di kilang kami sendiri, dan kini tiba masanya untuk membantu kilang anda bergerak ke arah sistem pengurusan yang tersusun dan berskala.
                     </p>
                 </div>
 
-                <!-- 中间：快速链接导航 (占 3 栏) -->
+                <!-- Navigasi Pintas Halaman (3 Bahagian) -->
                 <div class="lg:col-span-3 lg:col-start-7 space-y-4">
-                    <h4 class="text-white text-xs font-bold tracking-widest uppercase">快速导航</h4>
+                    <h4 class="text-white text-xs font-bold tracking-widest uppercase">Navigasi Pantas</h4>
                     <ul class="space-y-2.5 text-xs font-medium">
-                        <li><button onclick="navigateTo('home')" class="hover:text-white transition-colors text-gray-400">首页</button></li>
-                        <li><button onclick="navigateTo('about')" class="hover:text-white transition-colors text-gray-400">关于我们</button></li>
-                        <li><button onclick="navigateTo('home', 'simulator')" class="hover:text-amber-400 transition-colors text-gray-400 flex items-center gap-1"><i data-lucide="calculator" class="w-3.5 h-3.5 text-amber-500"></i>盈利模拟器</button></li>
+                        <li><button onclick="navigateTo('home')" class="hover:text-white transition-colors text-gray-400">Laman Utama</button></li>
+                        <li><button onclick="navigateTo('about')" class="hover:text-white transition-colors text-gray-400">Tentang Kami</button></li>
+                        <li><button onclick="navigateTo('home', 'simulator')" class="hover:text-amber-400 transition-colors text-gray-400 flex items-center gap-1"><i data-lucide="calculator" class="w-3.5 h-3.5 text-amber-500"></i>Simulator Keuntungan</button></li>
                     </ul>
                 </div>
 
-                <!-- 右侧：马来西亚实体官方背书与联系方式 (占 3 栏) -->
+                <!-- Maklumat Pendaftaran Rasmi Korporat Malaysia (3 Bahagian) -->
                 <div class="lg:col-span-3 space-y-4">
                     <h4 class="text-white text-xs font-bold tracking-widest uppercase font-semibold">GLOZONS (M) SDN BHD</h4>
                     <ul class="space-y-3.5 text-xs text-gray-400 font-medium">
@@ -869,21 +867,21 @@
 
             </div>
 
-            <!-- 页脚最低部合规声明 (无任何隐私链接) -->
+            <!-- Hak Cipta Rasmi -->
             <div class="border-t border-white/[0.04] pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-medium">
-                <p>© 2026 GLOZONS (M) SDN. BHD. 201901031143 (1340473-X) All rights reserved.</p>
+                <p>© 2026 GLOZONS (M) SDN. BHD. 201901031143 (1340473-X) Hak cipta terpelihara.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // 初始化 Lucide 图标
+        // Memulakan Ikon Lucide
         lucide.createIcons();
 
         /**
-         * 极致 SPA 单页路由逻辑
-         * @param {string} viewId - 'home' 或 'about'
-         * @param {string|null} scrollToSectionId - 切回首页时需要滚动定位到的锚点ID
+         * Logik Navigasi Laman SPA Halus
+         * @param {string} viewId - 'home' atau 'about'
+         * @param {string|null} scrollToSectionId - ID sasaran tatalan halaman
          */
         function navigateTo(viewId, scrollToSectionId = null) {
             const homeView = document.getElementById('view-home');
@@ -910,7 +908,7 @@
             }
         }
 
-        // 自定义 Toast 通知机制
+        // Mekanisme Notifikasi Toast Tersuai
         function showToast(message, type = 'success') {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
@@ -939,7 +937,7 @@
             }, 4000);
         }
 
-        // 手机端菜单切换
+        // Togol Menu Navigasi Skrin Kecil Mudah Alih
         let mobileMenuOpen = false;
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
@@ -956,14 +954,15 @@
             lucide.createIcons();
         }
 
-        // 测算模拟器核心计算逻辑 (包含向上圆整到千位)
+        // Fungsi Utama Pengiraan Simulator Hasil Jualan Minimum
         function calcSimulator() {
             const staff = parseInt(document.getElementById('sim-staff').value);
             const salary = parseFloat(document.getElementById('sim-salary').value);
 
-            document.getElementById('val-staff-txt').innerText = staff + ' 人';
+            document.getElementById('val-staff-txt').innerText = staff + ' Orang';
             document.getElementById('val-salary-txt').innerText = 'RM ' + salary.toLocaleString();
 
+            // Formula anggaran berasaskan skim perniagaan
             const monthlyRaw = ((staff * 110 * 26) + salary) / 0.38;
             const monthlyRounded = Math.ceil(monthlyRaw / 1000) * 1000;
             const annualRevenue = monthlyRounded * 12;
@@ -972,18 +971,19 @@
             document.getElementById('calc-annual-rev').innerText = 'RM ' + annualRevenue.toLocaleString();
         }
 
-        // 合作工厂团队照轮播图数据与控制器
+        // Senarai Data Slaid & Lokasi Kilang
         const slidesData = [
-            { caption: '马六甲工厂' },
-            { caption: '雪兰莪工厂' },
-            { caption: '柔佛工厂' },
-            { caption: '马六甲工厂' },
-            { caption: '雪兰莪工厂' }
+            { caption: 'Kilang Melaka' },
+            { caption: 'Kilang Selangor' },
+            { caption: 'Kilang Johor' },
+            { caption: 'Kilang Melaka' },
+            { caption: 'Kilang Selangor' }
         ];
 
         let currentSlide = 0;
         let autoplayInterval;
 
+        // Fungsi Memproses Paparan Slaid Gambar Secara 3D
         function updateSlider() {
             const total = slidesData.length;
             for (let i = 0; i < total; i++) {
@@ -1016,6 +1016,7 @@
             if (captionEl) captionEl.innerText = slidesData[currentSlide].caption;
         }
 
+        // Mengatur Masa Peralihan Autoplay Slaid
         function startAutoplay() {
             if (autoplayInterval) clearInterval(autoplayInterval);
             autoplayInterval = setInterval(() => {
@@ -1035,11 +1036,11 @@
             startAutoplay();
         }
 
-        // 初始化加载
+        // Memulakan Seluruh Fungsi Utama Semasa Halaman Dimuat Naik
         window.onload = function() {
             updateSlider();
             startAutoplay();
-            calcSimulator(); // 初始化时自动触发一次计算
+            calcSimulator(); // Pengiraan simulasi kali pertama
         };
     </script>
 </body>
